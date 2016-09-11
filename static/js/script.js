@@ -30,20 +30,20 @@ jQuery(document).ready(function($) {
     $(".info-unit h2").append('<span class="unit-remove"><i class="iconfont icon-delete"></i></span>');
 
 
-    var portrait_modal = $('[data-remodal-id=portrait-modal]').remodal();
-    $(".portrait").click(function(event) {
-        portrait_modal.open();
-    });
-    $('[data-remodal-id=portrait-modal] button').click(function(event) {
-        $(".portrait").css('background-image', 'url("{0}")'.format($("#avatar-url").val()));
-    });
-    var weixin_modal = $('[data-remodal-id=weixin-modal]').remodal();
-    $(".weixin").click(function(event) {
-        weixin_modal.open();
-    });
-    $('[data-remodal-id=weixin-modal] button').click(function(event) {
-        $(".weixin img").attr('src', $("#weixin-url").val());
-    });
+    // var portrait_modal = $('[data-remodal-id=portrait-modal]').remodal();
+    // $(".portrait").click(function(event) {
+    //     portrait_modal.open();
+    // });
+    // $('[data-remodal-id=portrait-modal] button').click(function(event) {
+    //     $(".portrait").css('background-image', 'url("{0}")'.format($("#avatar-url").val()));
+    // });
+    // var weixin_modal = $('[data-remodal-id=weixin-modal]').remodal();
+    // $(".weixin").click(function(event) {
+    //     weixin_modal.open();
+    // });
+    // $('[data-remodal-id=weixin-modal] button').click(function(event) {
+    //     $(".weixin img").attr('src', $("#weixin-url").val());
+    // });
 
     $('.info-header').hover(function() {
         /* Stuff to do when the mouse enters the element */
@@ -65,26 +65,26 @@ jQuery(document).ready(function($) {
         $(this).children('.item-remove').css('visibility', 'hidden');
     });
 
-    $('.unit-remove').click(function(event) {
-        $(this).closest(".info-unit").remove();
-    });
+//     $('.unit-remove').click(function(event) {
+//         $(this).closest(".info-unit").remove();
+//     });
 
-    $('.item-remove').click(function(event) {
-        $(this).closest("li").remove();
-    });
+//     $('.item-remove').click(function(event) {
+//         $(this).closest("li").remove();
+//     });
 
-    $('.item-add').click(function(event) {
-        var unit = $(this).closest(".info-unit");
-        if (unit.children('ul')){
-            var list = unit.children('ul');
-            var clone = list.children('li:first-child').clone(true);
-            list.append(clone);
-        }
+//     $('.item-add').click(function(event) {
+//         var unit = $(this).closest(".info-unit");
+//         if (unit.children('ul')){
+//             var list = unit.children('ul');
+//             var clone = list.children('li:first-child').clone(true);
+//             list.append(clone);
+//         }
 
-    });
-    $("progress").click(function(event) {
-        $(this).attr("value", event.offsetX/$(this).width()/0.8 * $(this).attr("max"));
-    });
-    // $("*").removeAttr('contenteditable');
+//     });
+//     $("progress").click(function(event) {
+//         $(this).attr("value", event.offsetX/$(this).width()/0.8 * $(this).attr("max"));
+//     });
+//     // $("*").removeAttr('contenteditable');
 
-});
+// });
