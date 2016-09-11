@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Rancho的个人简历</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remodal/1.1.0/remodal.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remodal/1.1.0/remodal-default-theme.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/remodal/1.1.0/remodal.min.js"></script>
+    <script src="static/js/script.js"></script>
+    <script src="static/js/background.js"></script>
+</head>
+
+<body>
+    <div class="container" id="cv">
+        <!-- 简历正文 -->
+        <div class="side">
+            <div class="me">
+                <div class="portrait"></div>
+                <div class="remodal remodal-img" data-remodal-id="portrait-modal">
+                    <h3>请输入图片URL地址：</h3>
+                    <br/>
+                    <input type="text" id="avatar-url">
+                    <button data-remodal-action="confirm" class="remodal-confirm">确定</button>
+                </div>
+                <h1 id="username" >Rancho</h1>
+                <h4 id="persona-tag" >Python C/C++</h4>
+            </div>
+            <div class="profile info-unit">
+                <h2 class="info-header"><i class="iconfont icon-person"></i> <span class="info-title">基本信息</span></h2>
+                <hr>
+                <ul class="info-list">
+                    <li>
+                        <label class="left-label">姓名</label>
+                        <span class="label-value">赵楠灿</span>
+                    </li>
+                    <li>
+                        <label class="left-label">网名</label>
+                        <span class="label-value">Rancho Cooper</span>
+                    </li>
+                    <li>
+                        <label class="left-label">学历</label>
+                        <span class="label-value">本科</span>
+                    </li>
+                    <li>
+                        <label class="left-label">院校</label>
+                        <span class="label-value">重庆邮电大学</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="contact info-unit">
+                <h2 class="info-header">
+                    <i class="iconfont icon-call"></i>
+                    <span class="info-title">联系方式</span>
+                </h2>
+                <hr>
+                <ul class="info-list">
+                    <li>
+                        <label class="left-label">手机</label>
+                        <span class="label-value">18883855775</span>
+                    </li>
+                    <li>
+                        <label class="left-label">主页</label>
+                        <span class="label-value">rancho1110.com</span>
+                    </li>
+                    <li>
+                        <label class="left-label">邮箱</label>
+                        <span class="label-value">ranchocooper@gmail.com</span>
+                    </li>
+                    <li>
+                        <label class="left-label">Github</label>
+                        <span class="label-value">github.com/ranchocooper</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="skill info-unit">
+                <h2 class="info-header">
+                    <i class="iconfont icon-star"></i>
+                    <span class="info-title">技能点</span>
+                </h2>
+                <hr>
+                <ul class="progress-list">
+                    <li>
+                        <label class="left-label">Python</label>
+                        <progress value="80" max="100"></progress>
+                    </li>
+                    <li>
+                        <label class="left-label">C/C++</label>
+                        <progress value="50" max="100"></progress>
+                    </li>
+                    <li>
+                        <label class="left-label">Linux</label>
+                        <progress value="70" max="100"></progress>
+                    </li>
+                </ul>
+            </div>
+            <div class="stack info-unit">
+                <h2 class="info-header">
+                    <i class="iconfont icon-build"></i>
+                    <span class="info-title">技术栈</span>
+                </h2>
+                <hr>
+                <ul class="stack-list">
+                    <li>
+                        <label class="left-label">前端</label>
+                        <span class="label-value">CSS, JavaScript</span>
+                    </li>
+                    <li>
+                        <label class="left-label">后端</label>
+                        <span class="label-value">Flask, Twisted<br>MySQL, Redis</span>
+                    </li>
+                    <li>
+                        <label class="left-label">日常</label>
+                        <span class="label-value">
+                            OS: ArchLinux<br>
+                            Shell: Zsh(Oh-My-Zsh)<br>
+                            Editor: Vim/Sublime<br>
+                            版本控制: Git/Github<br>
+                            文档书写: Markdown
+                        </span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="code info-unit">
+                <h2 class="info-header">
+                    <i class="iconfont icon-weixin"></i>
+                    <span class="info-title">微信号</span>
+                </h2>
+                <hr>
+                <div class="weixin">
+                    <img src="static/image/weixin.png" alt="">
+
+                </div>
+            </div>
+            <div class="remodal remodal-img" data-remodal-id="weixin-modal">
+                <h3>请输入图片URL地址：</h3>
+                <br/>
+                <input type="text" id="weixin-url">
+                <button data-remodal-action="confirm" class="remodal-confirm">确定</button>
+            </div>
+        </div>
+        <div class="main">
+            <div class="education info-unit right-list">
+                <h2 class="info-header">
+                    <i class="iconfont icon-education"></i>
+                    <span class="info-title">教育经历</span>
+                </h2>
+                <hr>
+                <ul class="experience-list">
+                    <li>
+                        <h3>重庆邮电大学 (本科)</h3>
+                        <p>
+                        &nbsp; 计算机科学与技术专业 2013.9 - 2017.6
+                        </p>
+                    </li>
+                </ul>
+            </div>
+            <div class="work info-unit right-list">
+                <h2 class="info-header">
+                    <i class="iconfont icon-work"></i>
+                    <span class="info-title">经历/实习</span>
+                </h2>
+                <hr>
+                <ul class="experience-list">
+                    <li>
+                        <h3>重庆邮电大学计算智能重点实验室</h3>
+                        <p>
+                        &nbsp; 时间: 2015.10 - 2016.4<br>
+                        &nbsp; 导师: 王国胤 (长江学者)<br>
+                        &nbsp; 内容: 智能交通灯的实现, 采集的数据样本通过云模型分析处理, 主要是完成师兄交代的小任务, 期间了解了一些人工智能和神经网络模型的相关知识与概念, 闲暇之余在练习《C++ Primer》
+                        </p>
+                    </li>
+                    <li>
+                        <h3>重庆梦之想科技有限公司 (实习)</h3>
+                        <p>
+                        &nbsp; 时间: 2016.7.10 - 2016.9.10<br>
+                        &nbsp; 部门: 安全研究院<br>
+                        &nbsp; 职位: Python开发实习工程师<br>
+                        &nbsp; 内容: 爬取领英注册用户资料<br>
+                        &nbsp; 其他: 维护公司服务器, 文档编写, 测试/运维脚本编写
+                        </p>
+                    </li>
+                </ul class="experience-list">
+            </div>
+            <div class="project info-unit right-list">
+                <h2 class="info-header">
+                    <i class="iconfont icon-project"></i>
+                    <span class="info-title">个人项目</span>
+                </h2>
+                <hr>
+                <ul class="experience-list">
+                    <li>
+                        <h3>领英爬虫</h3>
+                        <p>
+                        &nbsp; 爬取领英注册会员的资料, 基于生产者消费者模型实现的多线程爬虫. 领英站点防护工作做的很好, 绕开反爬花了一些时间, 因为公司要求不能公开代码. 期间也阅读了一些开源作品的代码, 几次代码重构不断优化性能, 改进编码风格. (如生成器, 修饰器的使用)
+                        </p>
+                    </li>
+                    <li>
+                        <h3>AwesomeNotes</h3>
+                        <p>
+                        &nbsp; 今年六月开始维护的个人知识管理仓库, 包含各种学习笔记和目标规划与进度记录
+                        </p>
+                    </li>
+                </ul>
+            </div>
+            <div class="trophy info-unit">
+                <h2 class="info-header">
+                    <i class="iconfont icon-trophy"></i>
+                    <span class="info-title">奖项与证书</span>
+                </h2>
+                <hr>
+                <ul class="experience-list">
+                    <li>
+                        <h3>CET 四级</h3>
+                        <!-- <p>
+                        &nbsp; 总分: 505
+                        </p> -->
+                    </li>
+                    <li>
+                        <h3>CCT 二级</h3>
+                        <p>
+                        &nbsp; 上机: 100  笔试: 90
+                        </p>
+                    </li>
+                    <li>
+                        <h3>品胜杯移动互联网创新设计大赛</h3>
+                        <p>
+                        &nbsp; 优胜奖
+                        </p>
+                    </li>
+            </div>
+            <div class="aboutme info-unit right-paragraph">
+                <h2 class="info-header">
+                    <i class="iconfont icon-flower"></i>
+                    <span class="info-title">自我评价</span>
+                </h2>
+                <hr>
+                <p>
+                    &nbsp; 努力的小咖, 未来的大牛. 哞哞哞.... <br><br>
+
+                    &nbsp; 每个码农心里都有座黑客帝国,<br>
+                    &nbsp; 或许穷极一生只不过一砖一瓦,<br>
+                    &nbsp; 但万川归海终成上帝的理想国.<br><br>
+
+                    &nbsp; 技术的发展日新月异, 相信在不久的未来, 终有一天, 随者网络技术和机器学习算法的发展, 互联网会像人类大脑一样高效工作, 每台主机就是这个有机体里的一个脑细胞. 整个网络会自发地学习, 不断交互信息, 如初生孩童般自我学习, 自我完善. <br><br>
+
+                    &nbsp; 想必在那个时代, 静态语言已成历史, 主流技术唯有元编程.<br>
+                    &nbsp; 理想国是未知数, 但作为后备攻城狮, 先做个快乐的粉刷匠<br>
+                </p>
+            </div>
+            <br>
+        </div>
+        <h4 align="center">
+            感谢您花时间阅读我的简历,
+            期待有机会能与您一同共事.
+        </h4>
+
+        <!-- 酷炫背景 -->
+        <script type="text/javascript">
+            !function(){function o(w,v,i){return w.getAttribute(v)||i}function j(i){return document.getElementsByTagName(i)}function l(){var i=j("script"),w=i.length,v=i[w-1];return{l:w,z:o(v,"zIndex",-1),o:o(v,"opacity",0.5),c:o(v,"color","0,0,0"),n:o(v,"count",99)}}function k(){r=u.width=window.innerWidth||document.documentElement.clientWidth||document.body.clientWidth,n=u.height=window.innerHeight||document.documentElement.clientHeight||document.body.clientHeight}function b(){e.clearRect(0,0,r,n);var w=[f].concat(t);var x,v,A,B,z,y;t.forEach(function(i){i.x+=i.xa,i.y+=i.ya,i.xa*=i.x>r||i.x<0?-1:1,i.ya*=i.y>n||i.y<0?-1:1,e.fillRect(i.x-0.5,i.y-0.5,1,1);for(v=0;v<w.length;v++){x=w[v];if(i!==x&&null!==x.x&&null!==x.y){B=i.x-x.x,z=i.y-x.y,y=B*B+z*z;y<x.max&&(x===f&&y>=x.max/2&&(i.x-=0.03*B,i.y-=0.03*z),A=(x.max-y)/x.max,e.beginPath(),e.lineWidth=A/2,e.strokeStyle="rgba("+s.c+","+(A+0.2)+")",e.moveTo(i.x,i.y),e.lineTo(x.x,x.y),e.stroke())}}w.splice(w.indexOf(i),1)}),m(b)}var u=document.createElement("canvas"),s=l(),c="c_n"+s.l,e=u.getContext("2d"),r,n,m=window.requestAnimationFrame||window.webkitRequestAnimationFrame||window.mozRequestAnimationFrame||window.oRequestAnimationFrame||window.msRequestAnimationFrame||function(i){window.setTimeout(i,1000/45)},a=Math.random,f={x:null,y:null,max:20000};u.id=c;u.style.cssText="position:fixed;top:0;left:0;z-index:"+s.z+";opacity:"+s.o;j("body")[0].appendChild(u);k(),window.onresize=k;window.onmousemove=function(i){i=i||window.event,f.x=i.clientX,f.y=i.clientY},window.onmouseout=function(){f.x=null,f.y=null};for(var t=[],p=0;s.n>p;p++){var h=a()*r,g=a()*n,q=2*a()-1,d=2*a()-1;t.push({x:h,y:g,xa:q,ya:d,max:6000})}setTimeout(function(){b()},100)}();
+        </script>
+        <canvas id="c_n">
+        </canvas>
+    </div>
+</body>
+</html>
