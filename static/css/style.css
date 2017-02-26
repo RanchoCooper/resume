@@ -112,11 +112,11 @@ hr {
 
 }
 
-.remodal-img button:hover{
+/*.remodal-img button:hover{
     float: right;
     background: #607d8b;
 
-}
+}*/
 
 
 body {
@@ -182,8 +182,10 @@ progress::-moz-progress-value {
 }
 
 .left-label {
+    font-size: 16px;
+    font-weight: bold;
     display: inline-block;
-    width: 80px;
+    width: 88px;
 }
 
 .portrait {
@@ -226,13 +228,13 @@ progress::-moz-progress-value {
 
 }
 
-.info-header:hover {
+/*.info-header:hover {
     background-color: transparent;
-}
+}*/
 
-.info-unit ul li:hover {
+/*.info-unit ul li:hover {
     background-color: transparent;
-}
+}*/
 
 .info-header .unit-remove {
     float: right;
