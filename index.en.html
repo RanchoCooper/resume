@@ -1,1269 +1,522 @@
 <!DOCTYPE html>
-<!-- English version of Rancho's resume -->
-<html>
+<html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Backend Engineer - Rancho Zhao</title></head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rancho Zhao — Senior Backend Engineer</title>
+    <style>
+        :root {
+            --primary: #2d426a;
+            --accent: #2b6cb0;
+            --accent-light: #ebf4ff;
+            --text: #2d3748;
+            --text-light: #718096;
+            --border: #e2e8f0;
+            --bg: #ffffff;
+            --tag-bg: #edf2f7;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.7;
+            color: var(--text);
+            background: #f7fafc;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .resume {
+            max-width: 820px;
+            margin: 40px auto;
+            background: var(--bg);
+            box-shadow: 0 4px 24px rgba(0,0,0,.08);
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            background: var(--primary);
+            color: #fff;
+            padding: 40px 56px 36px;
+            display: flex;
+            align-items: center;
+            gap: 36px;
+        }
+        .header-left { flex: 1; }
+        .header-name {
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 4px;
+        }
+        .header-title {
+            font-size: 15px;
+            font-weight: 400;
+            opacity: .85;
+            letter-spacing: 1px;
+        }
+        .header-contact {
+            margin-top: 18px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 24px;
+            font-size: 13px;
+            opacity: .85;
+        }
+        .header-contact span { white-space: nowrap; }
+        .header-contact a {
+            color: #bee3f8;
+            text-decoration: none;
+        }
+        .header-contact a:hover { text-decoration: underline; }
+        .header-photo {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            border: 3px solid rgba(255,255,255,.25);
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        .main { padding: 40px 56px 48px; }
+
+        /* ===== SECTION ===== */
+        .section { margin-bottom: 36px; }
+        .section:last-child { margin-bottom: 0; }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary);
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--border);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .section-title::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 20px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        /* ===== SUMMARY ===== */
+        .summary-text {
+            font-size: 15px;
+            line-height: 1.9;
+            color: var(--text);
+        }
+
+        /* ===== SKILL TAGS ===== */
+        .skill-group { margin-bottom: 16px; }
+        .skill-group:last-child { margin-bottom: 0; }
+        .skill-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: .5px;
+            margin-bottom: 8px;
+        }
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .skill-tag {
+            display: inline-block;
+            padding: 4px 14px;
+            font-size: 13px;
+            background: var(--tag-bg);
+            border-radius: 4px;
+            color: var(--text);
+            white-space: nowrap;
+        }
+        .skill-tag.highlight {
+            background: var(--accent-light);
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* ===== TIMELINE ===== */
+        .timeline-item {
+            position: relative;
+            padding-left: 28px;
+            margin-bottom: 28px;
+            border-left: 2px solid var(--border);
+        }
+        .timeline-item:last-child { margin-bottom: 0; }
+
+        .timeline-dot {
+            position: absolute;
+            left: -6px;
+            top: 6px;
+            width: 10px;
+            height: 10px;
+            background: var(--accent);
+            border-radius: 50%;
+            border: 2px solid #fff;
+            box-shadow: 0 0 0 2px var(--accent);
+        }
+        .timeline-dot.first { background: var(--primary); box-shadow: 0 0 0 2px var(--primary); }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 6px;
+        }
+        .exp-company {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        .exp-role {
+            font-size: 14px;
+            color: var(--accent);
+            font-weight: 600;
+        }
+        .exp-date {
+            font-size: 13px;
+            color: var(--text-light);
+            white-space: nowrap;
+        }
+        .exp-desc { margin-top: 4px; }
+        .exp-desc li {
+            position: relative;
+            padding-left: 16px;
+            margin-bottom: 4px;
+            font-size: 14px;
+            line-height: 1.8;
+            list-style: none;
+        }
+        .exp-desc li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-size: 10px;
+            top: 2px;
+        }
+
+        /* ===== PROJECTS ===== */
+        .project-item {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 18px;
+            padding: 16px 20px;
+            background: #f7fafc;
+            border-radius: 6px;
+            border-left: 3px solid var(--accent);
+        }
+        .project-item:last-child { margin-bottom: 0; }
+        .project-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
+        .project-info { flex: 1; }
+        .project-name {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+        .project-name a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 13px;
+            margin-left: 8px;
+        }
+        .project-name a:hover { text-decoration: underline; }
+        .project-desc {
+            font-size: 13px;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* ===== EDUCATION ===== */
+        .edu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+        .edu-school { font-size: 15px; font-weight: 600; color: var(--primary); }
+        .edu-major { font-size: 14px; color: var(--text-light); margin-left: 12px; }
+        .edu-date { font-size: 13px; color: var(--text-light); white-space: nowrap; }
+
+        /* ===== PRINT ===== */
+        @media print {
+            body { background: #fff; }
+            .resume {
+                max-width: 100%;
+                margin: 0;
+                box-shadow: none;
+            }
+            .header { padding: 28px 40px 24px; }
+            .main { padding: 28px 40px 32px; }
+            .section { margin-bottom: 24px; }
+            .project-item { break-inside: avoid; }
+            .timeline-item { break-inside: avoid; }
+        }
+
+        @media (max-width: 640px) {
+            .resume { margin: 0; }
+            .header { padding: 28px 24px 24px; flex-direction: column-reverse; text-align: center; }
+            .header-contact { justify-content: center; }
+            .header-name { font-size: 26px; }
+            .main { padding: 24px 24px 32px; }
+            .exp-header { flex-direction: column; }
+        }
+    </style>
+</head>
 <body>
-<style>
-.resumeOther_wrapper {
-    position: relative;
-    width: 802px;
-    margin: 0 auto;
-    text-align: left;
-    background-color: #fff;
-    box-shadow: 0 0 2px rgba(0, 0, 0, .1);
-}
+<div class="resume">
+    <!-- ===== HEADER ===== -->
+    <header class="header">
+        <div class="header-left">
+            <div class="header-name">Rancho Zhao</div>
+            <div class="header-title">Senior Backend Engineer · Go / Python</div>
+            <div class="header-contact">
+                <span>📧 <a href="mailto:1006959160@qq.com">1006959160@qq.com</a></span>
+                <span>📱 18883855775</span>
+                <span>🌐 <a href="https://blog.ranchocooper.com">blog.ranchocooper.com</a></span>
+                <span>💻 <a href="https://github.com/RanchoCooper">github.com/RanchoCooper</a></span>
+            </div>
+        </div>
+        <img class="header-photo" src="/static/image/photo.jpg" alt="Rancho Zhao" />
+    </header>
 
-.resumeOther_shadowForIe {
-    position: absolute;
-    left: -2px;
-    top: -2px;
-    right: 2px;
-    bottom: 2px;
-    z-index: 1;
-    background-color: #000;
-    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=5);
-    -ms-filter: "progid:DXImageTransform.Microsoft.Blur(pixelradius=3)" "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
-    *zoom: 1;
-    opacity: 0;
-}
+    <!-- ===== MAIN ===== -->
+    <main class="main">
 
-.resumeOther_cnt {
-    position: relative;
-    z-index: 2;
-    margin: 0 auto;
-    padding: 20px 0;
-    background-color: #fff;
-}
-</style>
-<div class="resumeOther_wrapper">
-    <div class="resumeOther_shadowForIe"></div>
-    <div class="resumeOther_cnt">
-        <table width="828" border="0" cellspacing="0" cellpadding="0"
-               style="table-layout: fixed;margin: 0 auto; background-color: #fff; color: #3b3b3b;">
-            <tbody>
-            <tr>
-                <td width="700">
-                    <div style=" width: 700px;"></div>
-                </td>
-                <td>
-                    <div style=" width: 128px;"></div>
-                </td>
-            </tr>
-            <tr>
-                <td valign="top" style="padding: 31px 33px 0 10px; color: #000; line-height: 1;">
+        <!-- Summary -->
+        <section class="section">
+            <div class="section-title">Summary</div>
+            <p class="summary-text">
+                Senior backend engineer with <strong>9 years</strong> of experience at leading companies including
+                <strong>Alibaba Local Services (Ele.me), Binance, and Liulishuo (Laix)</strong>.
+                Deep expertise in Go / Python tech stacks, with hands-on experience in high-concurrency
+                service architecture and Domain-Driven Design. Over the past two years, focused on
+                <strong>AI Agent development</strong> and <strong>quantitative trading systems</strong>,
+                bridging cutting-edge technology with business value. Proven cross-team collaboration
+                and technical leadership&mdash;led engineering teams to deliver mission-critical projects.
+            </p>
+        </section>
+
+        <!-- Skills -->
+        <section class="section">
+            <div class="section-title">Technical Skills</div>
+            <div class="skill-tags" style="margin-bottom: 10px;">
+                <span class="skill-tag highlight">Go</span>
+                <span class="skill-tag highlight">Python</span>
+                <span class="skill-tag">Java</span>
+                <span class="skill-tag highlight">Gin</span>
+                <span class="skill-tag highlight">GORM</span>
+                <span class="skill-tag">Flask</span>
+                <span class="skill-tag">MySQL</span>
+                <span class="skill-tag">PostgreSQL</span>
+                <span class="skill-tag">Redis</span>
+                <span class="skill-tag">Docker</span>
+                <span class="skill-tag">Linux</span>
+                <span class="skill-tag">Git</span>
+            </div>
+            <div class="skill-tags">
+                <span class="skill-tag highlight">Domain-Driven Design</span>
+                <span class="skill-tag highlight">Hexagonal Architecture</span>
+                <span class="skill-tag">TDD</span>
+                <span class="skill-tag highlight">AI Agent Development</span>
+                <span class="skill-tag">LLM Applications</span>
+                <span class="skill-tag">Quantitative Trading</span>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section class="section">
+            <div class="section-title">Education</div>
+            <div class="edu-item">
+                <div>
+                    <span class="edu-school">Chongqing University of Posts and Telecommunications</span>
+                    <span class="edu-major">· B.E. in Computer Science and Technology</span>
+                </div>
+                <span class="edu-date">2013.09 &mdash; 2017.06</span>
+            </div>
+        </section>
+
+        <!-- Work Experience -->
+        <section class="section">
+            <div class="section-title">Work Experience</div>
+
+            <!-- Huanteng -->
+            <div class="timeline-item">
+                <div class="timeline-dot first"></div>
+                <div class="exp-header">
                     <div>
-                        <table border="0" cellspacing="0" cellpadding="0">
-                            <tbody>
-                            <tr>
-                                <td align="left"
-                                    style="font-size: 15px; line-height: 1.8; word-break: break-word; font-family: 'lucida Grande', Verdana;padding: 7px; ">
-                                    <div style="font-size: 34px; font-weight: bold; color: #374760; line-height: 1;">
-                                        Rancho Zhao (赵楠灿)
-                                    </div>
-                                    <div style="font-size: 1px;height: 17px; line-height: 17px;"></div>
-                                    <div><span>Gender: Male&nbsp;&nbsp;</span>
-                                        <span style="color: #bbb;">|</span>&nbsp;&nbsp;<span>Bachelor's Degree&nbsp;&nbsp;</span>
-                                    </div>
-                                    <div><span>Hometown: Zhejiang&nbsp;&nbsp;</span>
-                                        <span style="color: #bbb;">|</span>&nbsp;&nbsp;<span>Current Location: Wenzhou&nbsp;&nbsp;</span>
-                                        <div style="font-size: 1px;height: 4px; line-height: 4px;"></div>
-                                    <div>
-                                        <span>Date of Birth: 1994.11&nbsp;&nbsp;</span>
-                                        <span style="color: #bbb;">|</span>&nbsp;&nbsp;<span>8 Years of Experience&nbsp;&nbsp;</span>
-                                    </div>
-                                    <div><span>Contact: </span><span>18883855775&nbsp;&nbsp;</span>
-                                        <span style="color: #bbb;">|</span>&nbsp;&nbsp;<span>1006959160@qq.com</span>
-                                    </div>
-                                    <div style="font-size: 1px;height: 4px; line-height: 4px;"></div>
-                                    <div><span>Personal Blog: </span><span><a href="https://blog.ranchocooper.com">https://blog.ranchocooper.com</a>
-                                    </span> <a href="https://serverless-page-bucket-dq7xwf43-1257286153.cos-website.ap-hongkong.myqcloud.com">Alternative URL (China)</a></div>
-                                    <div style="font-size: 1px;height: 4px; line-height: 4px;"></div>
-                                    <div><span>Github: </span><a href="https://github.com/RanchoCooper">https://github.com/RanchoCooper</a></div>
-                                    <div style="font-size: 1px;height: 4px; line-height: 4px;"></div>
-                                    </div>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
+                        <span class="exp-company">Wenzhou Huanteng Technology</span>
+                        <span class="exp-role">· Senior Backend Engineer</span>
                     </div>
-                </td>
-                <td valign="top" align="right" style="padding: 3px 12px 20px 0px; text-align: center; line-height: 0;">
-                    <img src="/static/image/photo.jpg" width="150" style="margin-left: -80px; margin-top: 20px;"/>
-                    <div></div>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2"
-                    style="padding: 0 0 30px;font-size: 15px; line-height: 1.8; word-break: break-word; font-family: 'lucida Grande', Verdana;">
-                    <div style="display: block">
-                        <div style="font-size: 1px;height: 12px; line-height: 12px;"></div>
-                        <table width="828" border="0" cellspacing="0" cellpadding="0" style="table-layout: fixed;">
-                            <tbody>
-                            <tr>
-                                <td colspan="2"
-                                    style="position: relative; padding: 13px 40px 6px 8px; font-size: 18px; font-weight: bold; line-height: 1; font-family: 'lucida Grande', Verdana;">
-                                    <img name="ico_t3EduExp20150617.png"
-                                         style="width: 26px; height: 26px; vertical-align: -7px; content: url(https://rescdn.qqmail.com/zh_CN/htmledition/images/webp/resume/template/ico_t3EduExp_png8264f47.png); _content: url(https://rescdn.qqmail.com/zh_CN/htmledition/images/webp/resume/template/ico_t3EduExp_png8264f47.png);"
-                                         src="./后端工程师_赵楠灿_files/ico_t3EduExp_png8264f47.png"
-                                         alt="Education"><span style="padding-left: 8px; color: #374760; ">Education</span></td>
-                            </tr>
-                            <tr>
-                                <td colspan="2" valign="top" style="padding: 0 8px 13px;">
-                                    <div style=" height: 1px; background-color: #e8e8e8; line-height: 1px; font-size: 1px;"></div>
-                                </td>
-                            </tr>
-                            <tr index="0">
-                                <td colspan="2" style="padding-left: 40px; ">
-                                    <table width="776" border="0" cellspacing="0" cellpadding="0"
-                                           style="table-layout: fixed;">
-                                        <tbody>
-                                        <tr>
-                                            <td width="151" valign="top"
-                                                style="font-size: 15px; line-height: 1.0; word-break: break-word; font-family: 'lucida Grande', Verdana;">
-                                                <div style="color: #3b3b3b;">2013.09&nbsp;-&nbsp;2017.06</div>
-                                            </td>
-                                            <td width="20" height="18" valign="center"
-                                                style="font-size: 14px; line-height: 1.5; word-break: break-word; -webkit-font-smoothing: antialiased; font-family: 'lucida Grande', Verdana;"></td>
-                                            <td valign="top"
-                                                style="padding: 1px 0 3px 4px;font-size: 15px; line-height: 1.0; word-break: break-word; font-family: 'lucida Grande', Verdana;">
-                                                <div>Chongqing University of Posts and Telecommunications&nbsp;&nbsp;Computer Science and Technology&nbsp;&nbsp;Full-time Bachelor's Degree</div>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="2" style="height: 7px; line-height: 7px;"></td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div style="display: block">
-                        <div style="font-size: 1px;height: 12px; line-height: 12px;"></div>
-                        <table width="828" border="0" cellspacing="0" cellpadding="0" style="table-layout: fixed;">
-                            <tbody>
-                            <tr>
-                                <td colspan="2"
-                                    style="position: relative; padding: 13px 40px 6px 8px; font-size: 18px; font-weight: bold; line-height: 1; font-family: 'lucida Grande', Verdana;">
-                                    <img name="ico_t3SelfEvaluation.png"
-                                         style="width: 26px; height: 26px; vertical-align: -7px; content: url(https://rescdn.qqmail.com/zh_CN/htmledition/images/webp/resume/template/ico_t3SelfEvaluation_png8264f47.png); _content: url(https://rescdn.qqmail.com/zh_CN/htmledition/images/webp/resume/template/ico_t3SelfEvaluation_png8264f47.png);"
-                                         src="./后端工程师_赵楠灿_files/ico_t3SelfEvaluation_png8264f47.png"
-                                         alt="Self Evaluation"><span style="padding-left: 8px; color: #374760; ">Self Evaluation</span></td>
-                            </tr>
-                            <tr>
-                                <td colspan="2" valign="top" style="padding: 0 8px 13px;">
-                                    <div style=" height: 1px; background-color: #e8e8e8; line-height: 1px; font-size: 1px;"></div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="2"
-                                    style="padding: 0 0 7px 40px; font-size: 15px; line-height: 1.8; word-break: break-word; font-family: 'lucida Grande', Verdana;">
-                                    <div>
-                                        <div>Basic Qualities: Gentle and steady personality, strong communication skills, high sense of responsibility, excellent team collaboration</div>
+                    <span class="exp-date">2026.03 &mdash; 2026.06</span>
+                </div>
+                <ul class="exp-desc">
+                    <li>Led backend development for the Feiying AI platform, powering AI image generation, AI video generation, and Agent conversational features across multiple business lines</li>
+                    <li>Integrated Alibaba Wanxiang, Doubao, Wengao Cloud and other model providers; built a unified model invocation layer with async task scheduling</li>
+                </ul>
+            </div>
 
-                                        <div>Technical Vision: Continuously learning cutting-edge technologies, reading numerous technical books and articles annually, maintaining technical acumen</div>
+            <!-- Avenir -->
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="exp-header">
+                    <div>
+                        <span class="exp-company">Avenir Group (Shenzhen)</span>
+                        <span class="exp-role">· Senior Backend Engineer</span>
+                    </div>
+                    <span class="exp-date">2024.11 &mdash; 2025.04</span>
+                </div>
+                <ul class="exp-desc">
+                    <li>Architected the backend system for the investment research platform, supporting <strong>millions of daily</strong> financial data collection and processing tasks</li>
+                    <li>Built a complete data pipeline (Airflow + Doris + Django) covering collection, storage, and visualization, significantly improving research data throughput</li>
+                    <li>Developed Grafana dashboards for real-time monitoring and visualization of key business metrics</li>
+                    <li>Supported the group risk-control department by designing and implementing an IP proxy pool solution to ensure data collection stability and compliance</li>
+                </ul>
+            </div>
 
-                                        <div>Business Capabilities: Deeply involved in core system development across multiple domains including logistics systems, online education, AB testing systems, and fintech</div>
-                                    </div>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
+            <!-- Binance -->
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="exp-header">
+                    <div>
+                        <span class="exp-company">Binance</span>
+                        <span class="exp-role">· Senior Backend Engineer</span>
                     </div>
-                    <div style="display: block">
-                        <div style="font-size: 1px;height: 12px; line-height: 12px;"></div>
-                        <table width="828" border="0" cellspacing="0" cellpadding="0" style="table-layout: fixed;">
-                            <tbody>
-                            <tr>
-                                <td colspan="2"
-                                    style="position: relative; padding: 13px 40px 6px 8px; font-size: 18px; font-weight: bold; line-height: 1; font-family: 'lucida Grande', Verdana;">
-                                    <img name="ico_t3ProfessionalSkills20150617.png"
-                                         style="width: 26px; height: 26px; vertical-align: -7px; content: url(https://rescdn.qqmail.com/zh_CN/htmledition/images/webp/resume/template/ico_t3ProfessionalSkills_png8264f47.png); _content: url(https://rescdn.qqmail.com/zh_CN/htmledition/images/webp/resume/template/ico_t3ProfessionalSkills_png8264f47.png)"
-                                         ;=""
-                                         src="./后端工程师_赵楠灿_files/ico_t3ProfessionalSkills_png8264f47.png"
-                                         alt="Professional Skills"><span style="padding-left: 8px; color: #374760; ">Professional Skills</span></td>
-                            </tr>
-                            <tr>
-                                <td colspan="2" valign="top" style="padding: 0 8px 13px;">
-                                    <div style=" height: 1px; background-color: #e8e8e8; line-height: 1px; font-size: 1px;"></div>
-                                </td>
-                            </tr>
-                            <tr index="">
-                                <td colspan="2" style="padding-left: 40px; ">
-                                    <table width="776" border="0" cellspacing="0" cellpadding="0"
-                                           style="table-layout: fixed;">
-                                        <tbody>
-                                        <tr>
-                                            <td height="6" style="line-height: 0; font-size: 1px;">&nbsp;</td>
-                                        </tr>
-                                        <tr>
-                                            <td valign="top"
-                                                style=" padding-top: 1px; font-size: 15px; line-height: 1.8; word-break: break-word; font-family: 'lucida Grande', Verdana;">
-                                                <div>· Proficient in Golang, skilled in building high-performance services using Gin, GORM and other frameworks</div>
-                                                <div>· Proficient in Python, skilled in building enterprise-level applications using Flask, Django and other frameworks</div>
-                                                <div>· Familiar with Java, experienced with Spring ecosystem and MyBatis frameworks</div>
-                                                <div>· Familiar with Linux development environment, proficient with development tools like IDEA, Cursor, Git, Vim</div>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="2" style="height: 7px; line-height: 7px;"></td>
-                            </tr>
-                            </tbody>
-                        </table>
+                    <span class="exp-date">2021.09 &mdash; 2023.06</span>
+                </div>
+                <ul class="exp-desc">
+                    <li>Core engineer for Themis, an A/B experimentation platform serving <strong>tens of millions of users</strong> for traffic splitting and experiment analysis</li>
+                    <li>Designed and implemented a three-tier caching architecture for the experiment routing engine, achieving millisecond-level matching latency</li>
+                    <li>Built a visual experiment configuration platform, reducing the operational cost of experiment iteration</li>
+                    <li>Founded the company-wide Go Hexagonal internal framework (DDD + Hexagonal Architecture), adopted across multiple business lines; integrated CLI scaffolding to accelerate new project bootstrapping</li>
+                    <li>Led a two-engineer team as tech lead, responsible for task assignment, code review, and mentorship</li>
+                </ul>
+            </div>
+
+            <!-- Liulishuo -->
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="exp-header">
+                    <div>
+                        <span class="exp-company">Liulishuo (Laix)</span>
+                        <span class="exp-role">· Senior Backend Engineer</span>
                     </div>
-                    <div style="display: block">
-                        <div style="font-size: 1px;height: 12px; line-height: 12px;"></div>
-                        <table width="828" border="0" cellspacing="0" cellpadding="0" style="table-layout: fixed;">
-                            <tbody>
-                            <tr>
-                                <td colspan="2"
-                                    style="position: relative; padding: 13px 40px 6px 8px; font-size: 18px; font-weight: bold; line-height: 1; font-family: 'lucida Grande', Verdana;">
-                                    <img name="ico_t3CareerObjective_png8264f47.png"
-                                         style="width: 26px; height: 26px; vertical-align: -7px; content: url(https://rescdn.qqmail.com/zh_CN/htmledition/images/webp/resume/template/ico_t3CareerObjective_png8264f47.png); _content: url(https://rescdn.qqmail.com/zh_CN/htmledition/images/webp/resume/template/ico_t3CareerObjective_png8264f47.png);"
-                                         src="./后端工程师_赵楠灿_files/ico_t3CareerObjective_png8264f47.png"
-                                         alt="Work Experience"><span style="padding-left: 8px; color: #374760; ">Work Experience</span></td>
-                            </tr>
-                            <tr>
-                                <td colspan="2" valign="top" style="padding: 0 8px 13px;">
-                                    <div style=" height: 1px; background-color: #e8e8e8; line-height: 1px; font-size: 1px;"></div>
-                                </td>
-                            </tr>
-                            <tr index="0">
-                                <td colspan="2" style="padding-left: 40px; ">
-                                    <table width="776" border="0" cellspacing="0" cellpadding="0"
-                                           style="table-layout: fixed;">
-                                        <tbody>
-                                        <tr>
-                                            <td width="151" valign="top"
-                                                style="font-size: 15px; line-height: 1.0; word-break: break-word; font-family: 'lucida Grande', Verdana;">
-                                                <div style="color: #3b3b3b;">2024.11 - 2025.04</div>
-                                            </td>
-                                            <td width="20" height="14" valign="bottom"
-                                                style="font-size: 14px; line-height: 1.5; word-break: break-word; -webkit-font-smoothing: antialiased; font-family: 'lucida Grande', Verdana;">
-                                                <img width="9" height="14" name="timeline_top.png_90886"
-                                                     style="vertical-align: bottom; content: url(https://rescdn.qqmail.com/zh_CN/htmledition/images/webp/resume/template/timeline_top20704c.png); _content: url(https://rescdn.qqmail.com/zh_CN/htmledition/images/webp/resume/template/timeline_top_png820704c.png);"
-                                                     src="./后端工程师_赵楠灿_files/timeline_top_png820704c.png"
-                                                     alt="Timeline Top"></td>
-                                            <td valign="top"
-                                                style="padding: 1px 0 3px 4px;font-weight: bold; font-size: 15px;margin-bottom:7px;font-size: 15px; line-height: 1.0; word-break: break-word; font-family: 'lucida Grande', Verdana;">
-                                                <div style="font-weight: bold; font-size: 15px;margin-bottom: 1px;">
-                                                    Shenzhen Avenir Capital - Investment Research Middle Office - Senior Backend Engineer
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="3">
-                                                <table width="776" border="0" cellspacing="0" cellpadding="0"
-                                                       style="table-layout: fixed;">
-                                                    <tbody>
-                                                    <tr>
-                                                        <td width="154" valign="top"></td>
-                                                        <td style=" padding: 5px 0 0 18px; border-left: 3px solid #e8e8e8;font-size: 14px; line-height: 1.5; word-break: break-word; -webkit-font-smoothing: antialiased; font-family: 'lucida Grande', Verdana;">
-                                                            <div style="font-size: 15px; line-height: 1.8; word-break: break-word; font-family: 'lucida Grande', Verdana;">
-                                                                <div style="font-size: 15px; line-height: 1.8;">
-                                                                    <div>· Responsible for overall architecture design of investment research middle office backend system, supporting daily million-level financial data collection tasks</div>
-                                                                    <div>· Optimized Airflow scheduling system, significantly improving data collection and processing efficiency</div>
-                                                                    <div>· Built Grafana business dashboard for data visualization</div>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="3">
-                                                <table width="822" border="0" cellspacing="0" cellpadding="0"
-                                                       style="table-layout: fixed;">
-                                                    <tbody>
-                                                    <tr>
-                                                        <td width="154" valign="top"></td>
-                                                        <td style="padding-left: 66px; border-left: 3px solid #e8e8e8; font-size: 14px; line-height: 1.5; word-break: break-word; -webkit-font-smoothing: antialiased; font-family: 'lucida Grande', Verdana;">
-                                                            <div style="font-size: 1px;height: 16px; line-height: 16px;">
-                                                                &nbsp;
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </td>
-                            </tr>
-                            <tr index="1">
-                                <td colspan="2" style="padding-left: 40px; ">
-                                    <table width="776" border="0" cellspacing="0" cellpadding="0"
-                                           style="table-layout: fixed;">
-                                        <tbody>
-                                        <tr>
-                                            <td width="151" valign="top"
-                                                style="font-size: 15px; line-height: 1.0; word-break: break-word; font-family: 'lucida Grande', Verdana;">
-                                                <div style="color: #3b3b3b;">2021.09 - 2023.06</div>
-                                            </td>
-                                            <td width="20" height="14" valign="bottom"
-                                                style="font-size: 14px; line-height: 1.5; word-break: break-word; -webkit-font-smoothing: antialiased; font-family: 'lucida Grande', Verdana;">
-                                                <img width="9" height="14" name="timeline_top.png_90886"
-                                                     style="vertical-align: bottom; content: url(https://rescdn.qqmail.com/zh_CN/htmledition/images/webp/resume/template/timeline_top20704c.png); _content: url(https://rescdn.qqmail.com/zh_CN/htmledition/images/webp/resume/template/timeline_top_png820704c.png);"
-                                                     src="./后端工程师_赵楠灿_files/timeline_top_png820704c.png"
-                                                     alt="Timeline Top"></td>
-                                            <td valign="top"
-                                                style="padding: 1px 0 3px 4px;font-weight: bold; font-size: 15px;margin-bottom:7px;font-size: 15px; line-height: 1.0; word-break: break-word; font-family: 'lucida Grande', Verdana;">
-                                                <div style="font-weight: bold; font-size: 15px;margin-bottom: 1px;">
-                                                    Binance - E&C - Senior Backend Engineer
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="3">
-                                                <table width="776" border="0" cellspacing="0" cellpadding="0"
-                                                       style="table-layout: fixed;">
-                                                    <tbody>
-                                                    <tr>
-                                                        <td width="154" valign="top"></td>
-                                                        <td style=" padding: 5px 0 0 18px; border-left: 3px solid #e8e8e8;font-size: 14px; line-height: 1.5; word-break: break-word; -webkit-font-smoothing: antialiased; font-family: 'lucida Grande', Verdana;">
-                                                            <div style="font-size: 15px; line-height: 1.8; word-break: break-word; font-family: 'lucida Grande', Verdana;">
-                                                                <div style="font-size: 15px; line-height: 1.8;">
-                                                                    <div>· Core member responsible for supporting million-user AB testing system "Themis"</div>
-                                                                    <div>· Designed three-layer cache architecture for traffic routing engine, reducing experiment matching latency</div>
-                                                                    <div>· Built visual experiment configuration platform to improve experiment iteration efficiency</div>
-                                                                    <div>· Led two engineers as dotted-line leader for rapid growth</div>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="3">
-                                                <table width="822" border="0" cellspacing="0" cellpadding="0"
-                                                       style="table-layout: fixed;">
-                                                    <tbody>
-                                                    <tr>
-                                                        <td width="154" valign="top"></td>
-                                                        <td style="padding-left: 66px; border-left: 3px solid #e8e8e8; font-size: 14px; line-height: 1.5; word-break: break-word; -webkit-font-smoothing: antialiased; font-family: 'lucida Grande', Verdana;">
-                                                            <div style="font-size: 1px;height: 16px; line-height: 16px;">
-                                                                &nbsp;
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </td>
-                            </tr>
-                            <tr index="2">
-                                <td colspan="2" style="padding-left: 40px; ">
-                                    <table width="776" border="0" cellspacing="0" cellpadding="0"
-                                           style="table-layout: fixed;">
-                                        <tbody>
-                                        <tr>
-                                            <td width="151" valign="top"
-                                                style="font-size: 15px; line-height: 1.0; word-break: break-word; font-family: 'lucida Grande', Verdana;">
-                                                <div style="color: #3b3b3b;">2019.11&nbsp;-&nbsp;2021.01</div>
-                                            </td>
-                                            <td width="20" height="14" valign="bottom"
-                                                style="font-size: 14px; line-height: 1.5; word-break: break-word; -webkit-font-smoothing: antialiased; font-family: 'lucida Grande', Verdana;">
-                                                <img width="9" height="14" name="timeline_top.png_90886"
-                                                     style="vertical-align: bottom; content: url(https://rescdn.qqmail.com/zh_CN/htmledition/images/webp/resume/template/timeline_top20704c.png); _content: url(https://rescdn.qqmail.com/zh_CN/htmledition/images/webp/resume/template/timeline_top_png820704c.png);"
-                                                     src="./后端工程师_赵楠灿_files/timeline_top_png820704c.png"
-                                                     alt="Timeline Top"></td>
-                                            <td valign="top"
-                                                style="padding: 1px 0 3px 4px;font-weight: bold; font-size: 15px;margin-bottom:7px;font-size: 15px; line-height: 1.0; word-break: break-word; font-family: 'lucida Grande', Verdana;">
-                                                <div style="font-weight: bold; font-size: 15px;margin-bottom: 1px;">
-                                                    Liulishuo (Laix) - Technology Department - Senior Backend Engineer
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="3">
-                                                <table width="776" border="0" cellspacing="0" cellpadding="0"
-                                                       style="table-layout: fixed;">
-                                                    <tbody>
-                                                    <tr>
-                                                        <td width="154" valign="top"></td>
-                                                        <td style=" padding: 5px 0 0 18px; border-left: 3px solid #e8e8e8;font-size: 14px; line-height: 1.5; word-break: break-word; -webkit-font-smoothing: antialiased; font-family: 'lucida Grande', Verdana;">
-                                                            <div style="font-size: 15px; line-height: 1.8; word-break: break-word; font-family: 'lucida Grande', Verdana;">
-                                                                <div style="font-size: 15px; line-height: 1.8;">
-                                                                    <div>· Responsible for backend system design and development of education products including small classes and pronunciation features</div>
-                                                                    <div>· Responsible for technical debt management, significantly improving system stability and code quality</div>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="3">
-                                                <table width="822" border="0" cellspacing="0" cellpadding="0"
-                                                       style="table-layout: fixed;">
-                                                    <tbody>
-                                                    <tr>
-                                                        <td width="154" valign="top"></td>
-                                                        <td style="padding-left: 66px; border-left: 3px solid #e8e8e8; font-size: 14px; line-height: 1.5; word-break: break-word; -webkit-font-smoothing: antialiased; font-family: 'lucida Grande', Verdana;">
-                                                            <div style="font-size: 1px;height: 16px; line-height: 16px;">
-                                                                &nbsp;
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </td>
-                            </tr>
-                            <tr index="3">
-                                <td colspan="2" style="padding-left: 40px; ">
-                                    <table width="776" border="0" cellspacing="0" cellpadding="0"
-                                           style="table-layout: fixed;">
-                                        <tbody>
-                                        <tr>
-                                            <td width="151" valign="top"
-                                                style="font-size: 15px; line-height: 1.0; word-break: break-word; font-family: 'lucida Grande', Verdana;">
-                                                <div style="color: #3b3b3b;">2017.07&nbsp;-&nbsp;2019.11</div>
-                                            </td>
-                                            <td width="20" height="14" valign="bottom"
-                                                style="font-size: 14px; line-height: 1.5; word-break: break-word; -webkit-font-smoothing: antialiased; font-family: 'lucida Grande', Verdana;">
-                                                <img width="9" height="14" name="timeline_top.png_90886"
-                                                     style="vertical-align: bottom; content: url(https://rescdn.qqmail.com/zh_CN/htmledition/images/webp/resume/template/timeline_top20704c.png); _content: url(https://rescdn.qqmail.com/zh_CN/htmledition/images/webp/resume/template/timeline_top_png820704c.png);"
-                                                     src="./后端工程师_赵楠灿_files/timeline_top_png820704c.png"
-                                                     alt="Timeline Top"></td>
-                                            <td valign="top"
-                                                style="padding: 1px 0 3px 4px;font-weight: bold; font-size: 15px;margin-bottom:7px;font-size: 15px; line-height: 1.0; word-break: break-word; font-family: 'lucida Grande', Verdana;">
-                                                <div style="font-weight: bold; font-size: 15px;margin-bottom: 1px;">
-                                                    Alibaba Local Services (Ele.me) - Logistics R&D Department&nbsp;- Senior Backend Engineer
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="3">
-                                                <table width="776" border="0" cellspacing="0" cellpadding="0"
-                                                       style="table-layout: fixed;">
-                                                    <tbody>
-                                                    <tr>
-                                                        <td width="154" valign="top"></td>
-                                                        <td style=" padding: 5px 0 0 18px; border-left: 3px solid #e8e8e8;font-size: 14px; line-height: 1.5; word-break: break-word; -webkit-font-smoothing: antialiased; font-family: 'lucida Grande', Verdana;">
-                                                            <div style="font-size: 15px; line-height: 1.8; word-break: break-word; font-family: 'lucida Grande', Verdana;">
-                                                                <div style="font-size: 15px; line-height: 1.8;">
-                                                                    <div>· Responsible for R&D of systems including pickup-delivery separation, last-mile delivery, and autonomous delivery in future logistics</div>
-                                                                    <div>· Responsible for last-mile delivery system architecture upgrade and SOA transformation, supporting multi-region active-active deployment</div>
-                                                                    <div>· Cross-departmentally promoted unit test coverage improvement in logistics department and served as mentor for new employees</div>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </td>
-                            </tr>
-                            <tr index="4">
-                                <td colspan="2" style="padding-left: 40px; ">
-                                    <table width="776" border="0" cellspacing="0" cellpadding="0"
-                                           style="table-layout: fixed;">
-                                        <tbody>
-                                        <tr>
-                                            <td width="151" valign="top"
-                                                style="font-size: 15px; line-height: 1.0; word-break: break-word; font-family: 'lucida Grande', Verdana;">
-                                                <div style="color: #3b3b3b;">2017.01&nbsp;- 2017.04</div>
-                                            </td>
-                                            <td width="20" height="14" valign="top"
-                                                style="font-size: 14px; line-height: 1.5; word-break: break-word; -webkit-font-smoothing: antialiased; font-family: 'lucida Grande', Verdana;">
-                                                <img width="9" height="14" name="timeline_bottom.png_47588"
-                                                     style="vertical-align: top; content: url(https://rescdn.qqmail.com/zh_CN/htmledition/images/webp/resume/template/timeline_bottom20704c.png); _content: url(https://rescdn.qqmail.com/zh_CN/htmledition/images/webp/resume/template/timeline_bottom_png820704c.png);"
-                                                     src="./后端工程师_赵楠灿_files/timeline_bottom_png820704c.png"
-                                                     alt="Timeline Bottom"></td>
-                                            <td valign="top"
-                                                style="padding: 1px 0 3px 4px;font-weight: bold; font-size: 15px;margin-bottom:7px;font-size: 15px; line-height: 1.0; word-break: break-word; font-family: 'lucida Grande', Verdana;">
-                                                <div style="font-weight: bold; font-size: 15px;margin-bottom: 1px;">Zhihu - Community Group -&nbsp;Python Engineer (Intern)
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="3">
-                                                <table width="776" border="0" cellspacing="0" cellpadding="0"
-                                                       style="table-layout: fixed;">
-                                                    <tbody>
-                                                    <tr>
-                                                        <td width="154" valign="top"></td>
-                                                        <td style=" padding: 5px 0 0 18px; border-left: 3px solid #e8e8e8;font-size: 14px; line-height: 1.5; word-break: break-word; -webkit-font-smoothing: antialiased; font-family: 'lucida Grande', Verdana;">
-                                                            <div style="font-size: 15px; line-height: 1.8; word-break: break-word; font-family: 'lucida Grande', Verdana;">
-                                                                <div style="font-size: 15px; line-height: 1.8;">
-                                                                    <div>· Participated in development and maintenance of community daily module, involved in project technical solution design and review</div>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="3">
-                                                <div style="font-size: 1px;font-size: 0;line-height: 0;"></div>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="2" style="height: 7px; line-height: 7px;"></td>
-                            </tr>
-                            </tbody>
-                        </table>
+                    <span class="exp-date">2019.11 &mdash; 2021.01</span>
+                </div>
+                <ul class="exp-desc">
+                    <li>Responsible for backend architecture design and core feature development for multiple education products, including small-group classes and pronunciation training</li>
+                    <li>Led database sharding and partitioning for tables with hundreds of millions of rows, achieving significant read/write performance gains</li>
+                    <li>Built a unified OSS authentication service from scratch, ensuring consistent and secure user access across product lines</li>
+                    <li>Introduced Prometheus + Grafana observability stack, enabling full-stack service monitoring</li>
+                    <li>Developed Go-based Hive data ingestion jobs for scheduled structured data warehousing and data pipeline governance</li>
+                </ul>
+            </div>
+
+            <!-- Ele.me -->
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="exp-header">
+                    <div>
+                        <span class="exp-company">Alibaba Local Services (Ele.me)</span>
+                        <span class="exp-role">· Senior Backend Engineer</span>
                     </div>
-                    <div style="display: block">
-                        <div style="font-size: 1px;height: 12px; line-height: 12px;"></div>
-                        <table width="828" border="0" cellspacing="0" cellpadding="0" style="table-layout: fixed;">
-                            <tbody>
-                            <tr>
-                                <td colspan="2"
-                                    style="position: relative; padding: 13px 40px 6px 8px; font-size: 18px; font-weight: bold; line-height: 1; font-family: 'lucida Grande', Verdana;">
-                                    <img name="ico_t3WorkExp20150617.png"
-                                         style="width: 26px; height: 26px; vertical-align: -7px; content: url(https://rescdn.qqmail.com/zh_CN/htmledition/images/webp/resume/template/ico_t3WorkExp_png8264f47.png); _content: url(https://rescdn.qqmail.com/zh_CN/htmledition/images/webp/resume/template/ico_t3WorkExp_png8264f47.png);"
-                                         src="./后端工程师_赵楠灿_files/ico_t3WorkExp_png8264f47.png"
-                                         alt="Project Experience"><span style="padding-left: 8px; color: #374760; ">Project Experience</span></td>
-                            </tr>
-                            <tr>
-                                <td colspan="2" valign="top" style="padding: 0 8px 13px;">
-                                    <div style=" height: 1px; background-color: #e8e8e8; line-height: 1px; font-size: 1px;"></div>
-                                </td>
-                            </tr>
-                            <tr index="0">
-                                <td colspan="2" style="padding-left: 40px; ">
-                                    <table width="776" border="0" cellspacing="0" cellpadding="0"
-                                           style="table-layout: fixed;">
-                                        <tbody>
-                                        <tr>
-                                            <td width="151" valign="top"
-                                                style="font-size: 15px; line-height: 1.0; word-break: break-word; font-family: 'lucida Grande', Verdana;">
-                                                <div style="color: #3b3b3b;">2024.11 - 2025.04</div>
-                                            </td>
-                                            <td width="20" height="14" valign="bottom"
-                                                style="font-size: 14px; line-height: 1.5; word-break: break-word; -webkit-font-smoothing: antialiased; font-family: 'lucida Grande', Verdana;">
-                                                <img width="9" height="14" name="timeline_top.png_90886"
-                                                     style="vertical-align: bottom; content: url(https://rescdn.qqmail.com/zh_CN/htmledition/images/webp/resume/template/timeline_top20704c.png); _content: url(https://rescdn.qqmail.com/zh_CN/htmledition/images/webp/resume/template/timeline_top_png820704c.png);"
-                                                     src="./后端工程师_赵楠灿_files/timeline_top_png820704c.png"
-                                                     alt="Timeline Top"></td>
-                                            <td valign="top"
-                                                style="padding: 1px 0 3px 4px;font-weight: bold; font-size: 15px;margin-bottom:7px;font-size: 15px; line-height: 1.0; word-break: break-word; font-family: 'lucida Grande', Verdana;">
-                                                <div style="font-weight: bold; font-size: 15px;margin-bottom: 1px;">
-                                                    Avenir Group - Investment Research Middle Office - Senior Backend Engineer (Golang)
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="3">
-                                                <table width="776" border="0" cellspacing="0" cellpadding="0"
-                                                       style="table-layout: fixed;">
-                                                    <tbody>
-                                                    <tr>
-                                                        <td width="154" valign="top"></td>
-                                                        <td style=" padding: 5px 0 0 18px; border-left: 3px solid #e8e8e8;font-size: 14px; line-height: 1.5; word-break: break-word; -webkit-font-smoothing: antialiased; font-family: 'lucida Grande', Verdana;">
-                                                            <div style="font-size: 15px; line-height: 1.8; word-break: break-word; font-family: 'lucida Grande', Verdana;">
-                                                                <div style="font-size: 15px; line-height: 1.8;">
-                                                                    <div>· Built data collection system based on Airflow and Doris, built business dashboard backend using Django</div>
-                                                                    <div>· Supported risk control department with IP proxy pool requirements and technical implementation</div>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="3">
-                                                <table width="822" border="0" cellspacing="0" cellpadding="0"
-                                                       style="table-layout: fixed;">
-                                                    <tbody>
-                                                    <tr>
-                                                        <td width="154" valign="top"></td>
-                                                        <td style="padding-left: 66px; border-left: 3px solid #e8e8e8; font-size: 14px; line-height: 1.5; word-break: break-word; -webkit-font-smoothing: antialiased; font-family: 'lucida Grande', Verdana;">
-                                                            <div style="font-size: 1px;height: 16px; line-height: 16px;">
-                                                                &nbsp;
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </td>
-                            </tr>
-                            <tr index="1">
-                                <td colspan="2" style="padding-left: 40px; ">
-                                    <table width="776" border="0" cellspacing="0" cellpadding="0"
-                                           style="table-layout: fixed;">
-                                        <tbody>
-                                        <tr>
-                                            <td width="151" valign="top"
-                                                style="font-size: 15px; line-height: 1.0; word-break: break-word; font-family: 'lucida Grande', Verdana;">
-                                                <div style="color: #3b3b3b;">2021.09 - 2023.06</div>
-                                            </td>
-                                            <td width="20" height="14" valign="bottom"
-                                                style="font-size: 14px; line-height: 1.5; word-break: break-word; -webkit-font-smoothing: antialiased; font-family: 'lucida Grande', Verdana;">
-                                                <img width="9" height="14" name="timeline_top.png_90886"
-                                                     style="vertical-align: bottom; content: url(https://rescdn.qqmail.com/zh_CN/htmledition/images/webp/resume/template/timeline_top20704c.png); _content: url(https://rescdn.qqmail.com/zh_CN/htmledition/images/webp/resume/template/timeline_top_png820704c.png);"
-                                                     src="./后端工程师_赵楠灿_files/timeline_top_png820704c.png"
-                                                     alt="Timeline Top"></td>
-                                            <td valign="top"
-                                                style="padding: 1px 0 3px 4px;font-weight: bold; font-size: 15px;margin-bottom:7px;font-size: 15px; line-height: 1.0; word-break: break-word; font-family: 'lucida Grande', Verdana;">
-                                                <div style="font-weight: bold; font-size: 15px;margin-bottom: 1px;">
-                                                    Binance - Themis (AB Testing) - Senior Backend Engineer (Golang)
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="3">
-                                                <table width="776" border="0" cellspacing="0" cellpadding="0"
-                                                       style="table-layout: fixed;">
-                                                    <tbody>
-                                                    <tr>
-                                                        <td width="154" valign="top"></td>
-                                                        <td style=" padding: 5px 0 0 18px; border-left: 3px solid #e8e8e8;font-size: 14px; line-height: 1.5; word-break: break-word; -webkit-font-smoothing: antialiased; font-family: 'lucida Grande', Verdana;">
-                                                            <div style="font-size: 15px; line-height: 1.8; word-break: break-word; font-family: 'lucida Grande', Verdana;">
-                                                                <div style="font-size: 15px; line-height: 1.8;">
-                                                                    <div>· Designed and developed AB testing platform Themis, supporting tens of millions of user experiment traffic</div>
-                                                                    <div>· Built high-performance three-layer caching architecture to reduce experiment matching latency</div>
-                                                                    <div>· Developed visual configuration platform to improve operational team experiment iteration efficiency</div>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="3">
-                                                <table width="822" border="0" cellspacing="0" cellpadding="0"
-                                                       style="table-layout: fixed;">
-                                                    <tbody>
-                                                    <tr>
-                                                        <td width="154" valign="top"></td>
-                                                        <td style="padding-left: 66px; border-left: 3px solid #e8e8e8; font-size: 14px; line-height: 1.5; word-break: break-word; -webkit-font-smoothing: antialiased; font-family: 'lucida Grande', Verdana;">
-                                                            <div style="font-size: 1px;height: 16px; line-height: 16px;">
-                                                                &nbsp;
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </td>
-                            </tr>
-                            <tr index="2">
-                                <td colspan="2" style="padding-left: 40px; ">
-                                    <table width="776" border="0" cellspacing="0" cellpadding="0"
-                                           style="table-layout: fixed;">
-                                        <tbody>
-                                        <tr>
-                                            <td width="151" valign="top"
-                                                style="font-size: 15px; line-height: 1.0; word-break: break-word; font-family: 'lucida Grande', Verdana;">
-                                                <div style="color: #3b3b3b;">2022.01 - 2022.04</div>
-                                            </td>
-                                            <td width="20" height="14" valign="bottom"
-                                                style="font-size: 14px; line-height: 1.5; word-break: break-word; -webkit-font-smoothing: antialiased; font-family: 'lucida Grande', Verdana;">
-                                                <img width="9" height="14" name="timeline_top.png_90886"
-                                                     style="vertical-align: bottom; content: url(https://rescdn.qqmail.com/zh_CN/htmledition/images/webp/resume/template/timeline_top20704c.png); _content: url(https://rescdn.qqmail.com/zh_CN/htmledition/images/webp/resume/template/timeline_top_png820704c.png);"
-                                                     src="./后端工程师_赵楠灿_files/timeline_top_png820704c.png"
-                                                     alt="Timeline Top"></td>
-                                            <td valign="top"
-                                                style="padding: 1px 0 3px 4px;font-weight: bold; font-size: 15px;margin-bottom:7px;font-size: 15px; line-height: 1.0; word-break: break-word; font-family: 'lucida Grande', Verdana;">
-                                                <div style="font-weight: bold; font-size: 15px;margin-bottom: 1px;">
-                                                    Binance - Go Hexagonal - Senior Backend Engineer (Golang)
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="3">
-                                                <table width="776" border="0" cellspacing="0" cellpadding="0"
-                                                       style="table-layout: fixed;">
-                                                    <tbody>
-                                                    <tr>
-                                                        <td width="154" valign="top"></td>
-                                                        <td style=" padding: 5px 0 0 18px; border-left: 3px solid #e8e8e8;font-size: 14px; line-height: 1.5; word-break: break-word; -webkit-font-smoothing: antialiased; font-family: 'lucida Grande', Verdana;">
-                                                            <div style="font-size: 15px; line-height: 1.8; word-break: break-word; font-family: 'lucida Grande', Verdana;">
-                                                                <div style="font-size: 15px; line-height: 1.8;">
-                                                                    <div>· Built enterprise-level Golang internal framework based on DDD architecture principles, supporting multiple business line integrations</div>
-                                                                    <div>· Based on Hexagonal architecture, standardized project layering design through dependency inversion and interface isolation, achieving business and infrastructure separation, improving code testability</div>
-                                                                    <div>· Integrated CLI scaffolding tools, significantly accelerating new project startup efficiency</div>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="3">
-                                                <table width="822" border="0" cellspacing="0" cellpadding="0"
-                                                       style="table-layout: fixed;">
-                                                    <tbody>
-                                                    <tr>
-                                                        <td width="154" valign="top"></td>
-                                                        <td style="padding-left: 66px; border-left: 3px solid #e8e8e8; font-size: 14px; line-height: 1.5; word-break: break-word; -webkit-font-smoothing: antialiased; font-family: 'lucida Grande', Verdana;">
-                                                            <div style="font-size: 1px;height: 16px; line-height: 16px;">
-                                                                &nbsp;
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </td>
-                            </tr>
-                            <tr index="3">
-                                <td colspan="2" style="padding-left: 40px; ">
-                                    <table width="776" border="0" cellspacing="0" cellpadding="0"
-                                           style="table-layout: fixed;">
-                                        <tbody>
-                                        <tr>
-                                            <td width="151" valign="top"
-                                                style="font-size: 15px; line-height: 1.0; word-break: break-word; font-family: 'lucida Grande', Verdana;">
-                                                <div style="color: #3b3b3b;">2020.02&nbsp;-&nbsp;2021.01</div>
-                                            </td>
-                                            <td width="20" height="14" valign="bottom"
-                                                style="font-size: 14px; line-height: 1.5; word-break: break-word; -webkit-font-smoothing: antialiased; font-family: 'lucida Grande', Verdana;">
-                                                <img width="9" height="14" name="timeline_top.png_90886"
-                                                     style="vertical-align: bottom; content: url(https://rescdn.qqmail.com/zh_CN/htmledition/images/webp/resume/template/timeline_top20704c.png); _content: url(https://rescdn.qqmail.com/zh_CN/htmledition/images/webp/resume/template/timeline_top_png820704c.png);"
-                                                     src="./后端工程师_赵楠灿_files/timeline_top_png820704c.png"
-                                                     alt="Timeline Top"></td>
-                                            <td valign="top"
-                                                style="padding: 1px 0 3px 4px;font-weight: bold; font-size: 15px;margin-bottom:7px;font-size: 15px; line-height: 1.0; word-break: break-word; font-family: 'lucida Grande', Verdana;">
-                                                <div style="font-weight: bold; font-size: 15px;margin-bottom: 1px;">
-                                                    Laix - Authentic Pronunciation - Senior Backend Engineer (Golang)
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="3">
-                                                <table width="776" border="0" cellspacing="0" cellpadding="0"
-                                                       style="table-layout: fixed;">
-                                                    <tbody>
-                                                    <tr>
-                                                        <td width="154" valign="top"></td>
-                                                        <td style=" padding: 5px 0 0 18px; border-left: 3px solid #e8e8e8;font-size: 14px; line-height: 1.5; word-break: break-word; -webkit-font-smoothing: antialiased; font-family: 'lucida Grande', Verdana;">
-                                                            <div style="font-size: 15px; line-height: 1.8; word-break: break-word; font-family: 'lucida Grande', Verdana;">
-                                                                <div style="font-size: 15px; line-height: 1.8;">
-                                                                    <div>· Maintained Bell authentic pronunciation system, supporting feature iterations and system stability improvements</div>
-                                                                    <div>· Implemented sharding transformation for billion-level large tables, significantly optimizing database read-write performance</div>
-                                                                    <div>· Built unified OSS login authentication service, improving user access consistency and security</div>
-                                                                    <div>· Monitoring system construction: introduced Prometheus + Grafana, achieving real-time system observability</div>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="3">
-                                                <table width="822" border="0" cellspacing="0" cellpadding="0"
-                                                       style="table-layout: fixed;">
-                                                    <tbody>
-                                                    <tr>
-                                                        <td width="154" valign="top"></td>
-                                                        <td style="padding-left: 66px; border-left: 3px solid #e8e8e8; font-size: 14px; line-height: 1.5; word-break: break-word; -webkit-font-smoothing: antialiased; font-family: 'lucida Grande', Verdana;">
-                                                            <div style="font-size: 1px;height: 16px; line-height: 16px;">
-                                                                &nbsp;
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </td>
-                            </tr>
-                            <tr index="4">
-                                <td colspan="2" style="padding-left: 40px; ">
-                                    <table width="776" border="0" cellspacing="0" cellpadding="0"
-                                           style="table-layout: fixed;">
-                                        <tbody>
-                                        <tr>
-                                            <td width="151" valign="top"
-                                                style="font-size: 15px; line-height: 1.0; word-break: break-word; font-family: 'lucida Grande', Verdana;">
-                                                <div style="color: #3b3b3b;">2019.11&nbsp;-&nbsp;2021.01</div>
-                                            </td>
-                                            <td width="20" height="14" valign="top"
-                                                style="font-size: 14px; line-height: 1.5; word-break: break-word; -webkit-font-smoothing: antialiased; font-family: 'lucida Grande', Verdana;">
-                                                <img width="9" height="14" name="timeline_bottom.png_47588"
-                                                     style="vertical-align: top; content: url(https://rescdn.qqmail.com/zh_CN/htmledition/images/webp/resume/template/timeline_bottom20704c.png); _content: url(https://rescdn.qqmail.com/zh_CN/htmledition/images/webp/resume/template/timeline_bottom_png820704c.png);"
-                                                     src="./后端工程师_赵楠灿_files/timeline_bottom_png820704c.png"
-                                                     alt="Timeline Bottom"></td>
-                                            <td valign="top"
-                                                style="padding: 1px 0 3px 4px;font-weight: bold; font-size: 15px;margin-bottom:7px;font-size: 15px; line-height: 1.0; word-break: break-word; font-family: 'lucida Grande', Verdana;">
-                                                <div style="font-weight: bold; font-size: 15px;margin-bottom: 1px;">Laix - Small Classes - Senior Backend Engineer (Golang)
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="3">
-                                                <table width="776" border="0" cellspacing="0" cellpadding="0"
-                                                       style="table-layout: fixed;">
-                                                    <tbody>
-                                                    <tr>
-                                                        <td width="154" valign="top"></td>
-                                                            <td style=" padding: 5px 0 0 18px; border-left: 3px solid #e8e8e8;font-size: 14px; line-height: 1.5; word-break: break-word; -webkit-font-smoothing: antialiased; font-family: 'lucida Grande', Verdana;">
-                                                                <div style="font-size: 15px; line-height: 1.8; word-break: break-word; font-family: 'lucida Grande', Verdana;">
-                                                                <div style="font-size: 15px; line-height: 1.8;">
-                                                                    <div>· Responsible for small class service stability assurance and data pipeline design</div>
-                                                                    <div>· Used Golang to build Hive data consumption Job, achieving structured data scheduled storage</div>
-                                                                    <div>· Improved system maintainability, ensuring business continuity and data accuracy</div>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="3">
-                                                <div style="font-size: 1px;font-size: 0;line-height: 0;"></div>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </td>
-                            </tr>
-                            <tr index="5">
-                                <td colspan="2" style="padding-left: 40px; ">
-                                    <table width="776" border="0" cellspacing="0" cellpadding="0"
-                                           style="table-layout: fixed;">
-                                        <tbody>
-                                        <tr>
-                                            <td width="151" valign="top"
-                                                style="font-size: 15px; line-height: 1.0; word-break: break-word; font-family: 'lucida Grande', Verdana;">
-                                                <div style="color: #3b3b3b;">2018.04 - 2019.11</div>
-                                            </td>
-                                            <td width="20" height="14" valign="top"
-                                                style="font-size: 14px; line-height: 1.5; word-break: break-word; -webkit-font-smoothing: antialiased; font-family: 'lucida Grande', Verdana;">
-                                                <img width="9" height="14" name="timeline_bottom.png_47588"
-                                                     style="vertical-align: top; content: url(https://rescdn.qqmail.com/zh_CN/htmledition/images/webp/resume/template/timeline_bottom20704c.png); _content: url(https://rescdn.qqmail.com/zh_CN/htmledition/images/webp/resume/template/timeline_bottom_png820704c.png);"
-                                                     src="./后端工程师_赵楠灿_files/timeline_bottom_png820704c.png"
-                                                     alt="Timeline Bottom"></td>
-                                            <td valign="top"
-                                                style="padding: 1px 0 3px 4px;font-weight: bold; font-size: 15px;margin-bottom:7px;font-size: 15px; line-height: 1.0; word-break: break-word; font-family: 'lucida Grande', Verdana;">
-                                                <div style="font-weight: bold; font-size: 15px;margin-bottom: 1px;">Alibaba Local Services (Ele.me) - Autonomous Delivery - Senior Engineer (Java)</div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="3">
-                                                <table width="776" border="0" cellspacing="0" cellpadding="0"
-                                                       style="table-layout: fixed;">
-                                                    <tbody>
-                                                    <tr>
-                                                        <td width="154" valign="top"></td>
-                                                            <td style=" padding: 5px 0 0 18px; border-left: 3px solid #e8e8e8;font-size: 14px; line-height: 1.5; word-break: break-word; -webkit-font-smoothing: antialiased; font-family: 'lucida Grande', Verdana;">
-                                                                <div style="font-size: 15px; line-height: 1.8; word-break: break-word; font-family: 'lucida Grande', Verdana;">
-                                                                    <div style="font-size: 15px; line-height: 1.8;">
-                                                                    <div>· Technical solution lead, responsible for autonomous vehicle and robot delivery integration into existing last-mile delivery system</div>
-                                                                    <div>· Designed integration standards, collaborated with equipment manufacturers to complete elevator modification work</div>
-                                                                    <div>· Promoted multi-end testing and debugging, ensuring stable operation of intelligent hardware</div>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="3">
-                                                <div style="font-size: 1px;font-size: 0;line-height: 0;"></div>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </td>
-                            </tr>
-                            <tr index="6">
-                                <td colspan="2" style="padding-left: 40px; ">
-                                    <table width="776" border="0" cellspacing="0" cellpadding="0"
-                                           style="table-layout: fixed;">
-                                        <tbody>
-                                        <tr>
-                                            <td width="151" valign="top"
-                                                style="font-size: 15px; line-height: 1.0; word-break: break-word; font-family: 'lucida Grande', Verdana;">
-                                                <div style="color: #3b3b3b;">2018.02 - 2019.11</div>
-                                            </td>
-                                            <td width="20" height="14" valign="top"
-                                                style="font-size: 14px; line-height: 1.5; word-break: break-word; -webkit-font-smoothing: antialiased; font-family: 'lucida Grande', Verdana;">
-                                                <img width="9" height="14" name="timeline_bottom.png_47588"
-                                                     style="vertical-align: top; content: url(https://rescdn.qqmail.com/zh_CN/htmledition/images/webp/resume/template/timeline_bottom20704c.png); _content: url(https://rescdn.qqmail.com/zh_CN/htmledition/images/webp/resume/template/timeline_bottom_png820704c.png);"
-                                                     src="./后端工程师_赵楠灿_files/timeline_bottom_png820704c.png"
-                                                     alt="Timeline Bottom"></td>
-                                            <td valign="top"
-                                                style="padding: 1px 0 3px 4px;font-weight: bold; font-size: 15px;margin-bottom:7px;font-size: 15px; line-height: 1.0; word-break: break-word; font-family: 'lucida Grande', Verdana;">
-                                                <div style="font-weight: bold; font-size: 15px;margin-bottom: 1px;">Alibaba Local Services (Ele.me) - Last-Mile Delivery - Senior Engineer (Java)</div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="3">
-                                                <table width="776" border="0" cellspacing="0" cellpadding="0"
-                                                       style="table-layout: fixed;">
-                                                    <tbody>
-                                                    <tr>
-                                                        <td width="154" valign="top"></td>
-                                                            <td style=" padding: 5px 0 0 18px; border-left: 3px solid #e8e8e8;font-size: 14px; line-height: 1.5; word-break: break-word; -webkit-font-smoothing: antialiased; font-family: 'lucida Grande', Verdana;">
-                                                                <div style="font-size: 15px; line-height: 1.8; word-break: break-word; font-family: 'lucida Grande', Verdana;">
-                                                                    <div style="font-size: 15px; line-height: 1.8;">
-                                                                    <div>· Built SOA services based on Spring, integrated with unified gateway Pizza</div>
-                                                                    <div>· Supported mini-program and management backend development, launched efficient internal network operation</div>
-                                                                    <div>· Based on DDD, transformed original Python project to Java, improving system maintainability and extensibility</div>
-                                                                    <div>· Designed and implemented last-mile data dashboard, providing intuitive data display and analysis for management backend system</div>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="3">
-                                                <div style="font-size: 1px;font-size: 0;line-height: 0;"></div>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </td>
-                            </tr>
-                            <tr index="7">
-                                <td colspan="2" style="padding-left: 40px; ">
-                                    <table width="776" border="0" cellspacing="0" cellpadding="0"
-                                           style="table-layout: fixed;">
-                                        <tbody>
-                                        <tr>
-                                            <td width="151" valign="top"
-                                                style="font-size: 15px; line-height: 1.0; word-break: break-word; font-family: 'lucida Grande', Verdana;">
-                                                <div style="color: #3b3b3b;">2017.07 - 2018.02</div>
-                                            </td>
-                                            <td width="20" height="14" valign="top"
-                                                style="font-size: 14px; line-height: 1.5; word-break: break-word; -webkit-font-smoothing: antialiased; font-family: 'lucida Grande', Verdana;">
-                                                <img width="9" height="14" name="timeline_bottom.png_47588"
-                                                     style="vertical-align: top; content: url(https://rescdn.qqmail.com/zh_CN/htmledition/images/webp/resume/template/timeline_bottom20704c.png); _content: url(https://rescdn.qqmail.com/zh_CN/htmledition/images/webp/resume/template/timeline_bottom_png820704c.png);"
-                                                     src="./后端工程师_赵楠灿_files/timeline_bottom_png820704c.png"
-                                                     alt="Timeline Bottom"></td>
-                                            <td valign="top"
-                                                style="padding: 1px 0 3px 4px;font-weight: bold; font-size: 15px;margin-bottom:7px;font-size: 15px; line-height: 1.0; word-break: break-word; font-family: 'lucida Grande', Verdana;">
-                                                <div style="font-weight: bold; font-size: 15px;margin-bottom: 1px;">Alibaba Local Services (Ele.me) - Pickup-Delivery Separation - Backend Engineer (Python)</div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="3">
-                                                <table width="776" border="0" cellspacing="0" cellpadding="0"
-                                                       style="table-layout: fixed;">
-                                                    <tbody>
-                                                    <tr>
-                                                        <td width="154" valign="top"></td>
-                                                            <td style=" padding: 5px 0 0 18px; border-left: 3px solid #e8e8e8;font-size: 14px; line-height: 1.5; word-break: break-word; -webkit-font-smoothing: antialiased; font-family: 'lucida Grande', Verdana;">
-                                                                <div style="font-size: 15px; line-height: 1.8; word-break: break-word; font-family: 'lucida Grande', Verdana;">
-                                                                    <div style="font-size: 15px; line-height: 1.8;">
-                                                                    <div>· Used Flask framework to build backend system, which underwent technological innovation and process optimization based on business requirements</div>
-                                                                    <div>· Implemented intelligent path planning algorithm, improving delivery efficiency by 25%</div>
-                                                                    <div>· Gray-scale business district testing, improving human efficiency by 30%, reducing per-order cost by 20%</div>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="3">
-                                                <div style="font-size: 1px;font-size: 0;line-height: 0;"></div>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="2" style="height: 7px; line-height: 7px;"></td>
-                            </tr>
-                            </tbody>
-                        </table>
+                    <span class="exp-date">2017.07 &mdash; 2019.11</span>
+                </div>
+                <ul class="exp-desc">
+                    <li>Developed and iterated on core logistics systems including pick-up/delivery separation, last-mile delivery, and autonomous delivery</li>
+                    <li>Led architecture upgrade and SOA migration (Spring + Pizza Gateway) of the last-mile delivery system, supporting multi-region active-active deployment</li>
+                    <li>Designed integration standards for autonomous delivery; led the integration of autonomous vehicles and delivery robots into the existing last-mile system, coordinating with hardware vendors on elevator adaptation</li>
+                    <li>Migrated legacy Python systems to Java using DDD, significantly improving maintainability and extensibility</li>
+                    <li>Implemented an intelligent route planning algorithm with Flask, improving delivery efficiency by 25%; pilot testing in targeted districts yielded 30% manpower efficiency gain and 20% cost reduction per order</li>
+                    <li>Drove unit test coverage improvement across the logistics department and served as a mentor for new hires</li>
+                </ul>
+            </div>
+
+            <!-- Zhihu -->
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="exp-header">
+                    <div>
+                        <span class="exp-company">Zhihu</span>
+                        <span class="exp-role">· Python Engineer (Intern)</span>
                     </div>
-                    <div style="display: block">
-                        <div style="font-size: 1px;height: 12px; line-height: 12px;"></div>
-                        <table width="828" border="0" cellspacing="0" cellpadding="0" style="table-layout: fixed;">
-                            <tbody>
-                            <tr>
-                                <td colspan="2"
-                                    style="position: relative; padding: 13px 40px 6px 8px; font-size: 18px; font-weight: bold; line-height: 1; font-family: 'lucida Grande', Verdana;">
-                                    <img name="ico_t3ProjectExp20150617.png"
-                                         style="width: 26px; height: 26px; vertical-align: -7px; content: url(https://rescdn.qqmail.com/zh_CN/htmledition/images/webp/resume/template/ico_t3ProjectExp_png8264f47.png); _content: url(https://rescdn.qqmail.com/zh_CN/htmledition/images/webp/resume/template/ico_t3ProjectExp_png8264f47.png);"
-                                         src="./后端工程师_赵楠灿_files/ico_t3ProjectExp_png8264f47.png" alt="Personal Projects"><span
-                                        style="padding-left: 8px; color: #374760; ">Personal Projects</span></td>
-                            </tr>
-                            <tr>
-                                <td colspan="2" valign="top" style="padding: 0 8px 13px;">
-                                    <div style=" height: 1px; background-color: #e8e8e8; line-height: 1px; font-size: 1px;"></div>
-                                </td>
-                            </tr>
-                            <tr index="1">
-                                <td colspan="2" style="padding-left: 40px; ">
-                                    <table width="776" border="0" cellspacing="0" cellpadding="0"
-                                           style="table-layout: fixed;">
-                                        <tbody>
-                                        <tr>
-                                            <td width="20" height="21" valign="top"
-                                                style="font-size: 14px; line-height: 1.5; word-break: break-word; -webkit-font-smoothing: antialiased; font-family: 'lucida Grande', Verdana;">
-                                                <img width="9" height="21" name="timeline_mid.png_49504"
-                                                     style="vertical-align: top; content: url(https://rescdn.qqmail.com/zh_CN/htmledition/images/webp/resume/template/timeline_mid26bfcd.png); _content: url(https://rescdn.qqmail.com/zh_CN/htmledition/images/webp/resume/template/timeline_mid_png826bfcd.png);"
-                                                     src="./后端工程师_赵楠灿_files/timeline_mid_png826bfcd.png"
-                                                     alt="Timeline Middle"></td>
-                                            <td valign="top"
-                                                style="padding: 1px 0 3px 4px;font-weight: bold; font-size: 15px;margin-bottom:7px;font-size: 15px; line-height: 1.0; word-break: break-word; font-family: 'lucida Grande', Verdana;">
-                                                <div style="font-weight: bold; font-size: 15px;margin-bottom: 1px;">
-                                                    Technical Learning
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="3">
-                                                <table width="776" border="0" cellspacing="0" cellpadding="0"
-                                                       style="table-layout: fixed;">
-                                                    <tbody>
-                                                    <tr>
-                                                        <td width="3" valign="top"></td>
-                                                        <td style=" padding: 5px 0 0 18px; border-left: 3px solid #e8e8e8;font-size: 14px; line-height: 1.5; word-break: break-word; -webkit-font-smoothing: antialiased; font-family: 'lucida Grande', Verdana;">
-                                                            <div >
-                                                                <div style="font-size: 15px; line-height: 1.8;">
-                                                                    <div>
-                                                                        · <a href="https://github.com/RanchoCooper/go-programming-tour-book">Go-programming-tour-book</a> : Code practice for "Go Programming Tour" book.
-                                                                    </div>
-                                                                    <div>
-                                                                        · <a href="https://github.com/RanchoCooper/learn-go-with-tests">Learn-Go-with-tests</a> : Learning test-driven development through Go language.
-                                                                    </div>
-                                                                    <div>
-                                                                        · <a href="https://github.com/RanchoCooper/go-by-demos">Go-by-demos</a> : Code practice for Go-related third-party libraries and articles.
-                                                                    </div>
-                                                                    <div>
-                                                                        · <a href="https://github.com/RanchoCooper/go-in-action">Go-in-action</a> : Code practice for "Go in Action" book.
-                                                                    </div>
-                                                                    <div>
-                                                                        · <a href="https://github.com/RanchoCooper/HackerRank">Hacker Rank</a> : Hacker Rank problem-solving records.
-                                                                    </div>
-                                                                    <div>
-                                                                        · <a href="https://github.com/RanchoCooper/leet-code">Leet-code</a> : LeetCode problem-solving records.
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="3">
-                                                <table width="822" border="0" cellspacing="0" cellpadding="0"
-                                                       style="table-layout: fixed;">
-                                                    <tbody>
-                                                    <tr>
-                                                        <td width="3" valign="top"></td>
-                                                        <td style="padding-left: 66px; border-left: 3px solid #e8e8e8; font-size: 14px; line-height: 1.5; word-break: break-word; -webkit-font-smoothing: antialiased; font-family: 'lucida Grande', Verdana;">
-                                                            <div style="font-size: 1px;height: 16px; line-height: 16px;">
-                                                                &nbsp;
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </td>
-                            </tr>
-                            <tr index="2">
-                                <td colspan="2" style="padding-left: 40px; ">
-                                    <table width="776" border="0" cellspacing="0" cellpadding="0"
-                                           style="table-layout: fixed;">
-                                        <tbody>
-                                        <tr>
-                                            <td width="20" height="21" valign="top"
-                                                style="font-size: 14px; line-height: 1.5; word-break: break-word; -webkit-font-smoothing: antialiased; font-family: 'lucida Grande', Verdana;">
-                                                <img width="9" height="21" name="timeline_mid.png_49504"
-                                                     style="vertical-align: top; content: url(https://rescdn.qqmail.com/zh_CN/htmledition/images/webp/resume/template/timeline_mid26bfcd.png); _content: url(https://rescdn.qqmail.com/zh_CN/htmledition/images/webp/resume/template/timeline_mid_png826bfcd.png);"
-                                                     src="./后端工程师_赵楠灿_files/timeline_mid_png826bfcd.png"
-                                                     alt="Timeline Middle"></td>
-                                            <td valign="top"
-                                                style="padding: 1px 0 3px 4px;font-weight: bold; font-size: 15px;margin-bottom:7px;font-size: 15px; line-height: 1.0; word-break: break-word; font-family: 'lucida Grande', Verdana;">
-                                                <div style="font-weight: bold; font-size: 15px;margin-bottom: 1px;">
-                                                    Technical Projects
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="3">
-                                                <table width="776" border="0" cellspacing="0" cellpadding="0"
-                                                       style="table-layout: fixed;">
-                                                    <tbody>
-                                                    <tr>
-                                                        <td width="3" valign="top"></td>
-                                                        <td style=" padding: 5px 0 0 18px; border-left: 3px solid #e8e8e8;font-size: 14px; line-height: 1.5; word-break: break-word; -webkit-font-smoothing: antialiased; font-family: 'lucida Grande', Verdana;">
-                                                            <div>
-                                                                <div style="font-size: 15px; line-height: 1.8;">
-                                                                    <div>
-                                                                        · <a href="https://github.com/RanchoCooper/go-hexagonal">Go Hexagonal</a> : Go template project based on Hexagonal Architecture and Domain-Driven Design.
-                                                                    </div>
-                                                                    <div>
-                                                                        · <a href="https://github.com/RanchoCooper/py-hexagonal">Py Hexagonal</a> : Python template project based on Hexagonal Architecture and Domain-Driven Design.
-                                                                    </div>
-                                                                    <div>
-                                                                        · <a href="https://github.com/RanchoCooper/quants">Quants</a> : Personal quantitative trading system. Continuously iterating.
-                                                                    </div>
-                                                                    <div>
-                                                                        · <a href="https://github.com/RanchoCooper/py-quantix">Py-Quantix</a> : Personal quantitative trading system. Continuously iterating.
-                                                                    </div>
-                                                                    <div>
-                                                                        · <a href="https://github.com/RanchoCooper/hexo-theme-huxblog">Hexo-theme-huxblog</a> : Custom theme for Hexo personal blog.
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="3">
-                                                <table width="822" border="0" cellspacing="0" cellpadding="0"
-                                                       style="table-layout: fixed;">
-                                                    <tbody>
-                                                    <tr>
-                                                        <td width="3" valign="top"></td>
-                                                        <td style="padding-left: 66px; border-left: 3px solid #e8e8e8; font-size: 14px; line-height: 1.5; word-break: break-word; -webkit-font-smoothing: antialiased; font-family: 'lucida Grande', Verdana;">
-                                                            <div style="font-size: 1px;height: 16px; line-height: 16px;">
-                                                                &nbsp;
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </td>
-                            </tr>
-                            <tr index="3">
-                                <td colspan="2" style="padding-left: 40px; ">
-                                    <table width="776" border="0" cellspacing="0" cellpadding="0"
-                                           style="table-layout: fixed;">
-                                        <tbody>
-                                        <tr>
-                                            <td width="20" height="21" valign="top"
-                                                style="font-size: 14px; line-height: 1.5; word-break: break-word; -webkit-font-smoothing: antialiased; font-family: 'lucida Grande', Verdana;">
-                                                <img width="9" height="21" name="timeline_mid.png_49504"
-                                                     style="vertical-align: top; content: url(https://rescdn.qqmail.com/zh_CN/htmledition/images/webp/resume/template/timeline_mid26bfcd.png); _content: url(https://rescdn.qqmail.com/zh_CN/htmledition/images/webp/resume/template/timeline_mid_png826bfcd.png);"
-                                                     src="./后端工程师_赵楠灿_files/timeline_mid_png826bfcd.png"
-                                                     alt="Timeline Middle"></td>
-                                            <td valign="top"
-                                                style="padding: 1px 0 3px 4px;font-weight: bold; font-size: 15px;margin-bottom:7px;font-size: 15px; line-height: 1.0; word-break: break-word; font-family: 'lucida Grande', Verdana;">
-                                                <div style="font-weight: bold; font-size: 15px;margin-bottom: 1px;">
-                                                    Open Source Contributions
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="3">
-                                                <table width="776" border="0" cellspacing="0" cellpadding="0"
-                                                       style="table-layout: fixed;">
-                                                    <tbody>
-                                                    <tr>
-                                                        <td width="3" valign="top"></td>
-                                                        <td style=" padding: 5px 0 0 18px; border-left: 3px solid #e8e8e8;font-size: 14px; line-height: 1.5; word-break: break-word; -webkit-font-smoothing: antialiased; font-family: 'lucida Grande', Verdana;">
-                                                            <div>
-                                                                <div style="font-size: 15px; line-height: 1.8;">
-                                                                    <div>
-                                                                        · <a href="https://github.com/RanchoCooper/structs">Structs</a> : Tag label optimization and improvement
-                                                                    </div>
-                                                                    <div>
-                                                                        · <a href="https://github.com/vibora-io/vibora">Vibora</a> : Fixed routing bugs, improved documentation
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="3">
-                                                <table width="822" border="0" cellspacing="0" cellpadding="0"
-                                                       style="table-layout: fixed;">
-                                                    <tbody>
-                                                    <tr>
-                                                        <td width="3" valign="top"></td>
-                                                        <td style="padding-left: 66px; border-left: 3px solid #e8e8e8; font-size: 14px; line-height: 1.5; word-break: break-word; -webkit-font-smoothing: antialiased; font-family: 'lucida Grande', Verdana;">
-                                                            <div style="font-size: 1px;height: 16px; line-height: 16px;">
-                                                                &nbsp;
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="2" style="height: 7px; line-height: 7px;"></td>
-                            </tr>
-                            </tbody>
-                        </table>
+                    <span class="exp-date">2017.01 &mdash; 2017.04</span>
+                </div>
+                <ul class="exp-desc">
+                    <li>Contributed to the development and maintenance of the community digest module; participated in technical design reviews</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Personal Projects & Open Source -->
+        <section class="section">
+            <div class="section-title">Personal Projects &amp; Open Source</div>
+
+            <div class="project-item">
+                <div class="project-icon">🗺️</div>
+                <div class="project-info">
+                    <div class="project-name">Mood Map Pro &mdash; Anonymous Social Mini Program</div>
+                    <div class="project-desc">WeChat Mini Program with <strong>Go (Gin)</strong> backend, PostgreSQL + WebSocket real-time communication. Features: mood posting with geo-heatmap, smart matching by mood type and city, time-limited 5-minute chat sessions with extension, crisis keyword detection with automatic mental health hotline referral.</div>
+                </div>
+            </div>
+
+            <div class="project-item">
+                <div class="project-icon">💰</div>
+                <div class="project-info">
+                    <div class="project-name">WealthWise &mdash; Personal Finance Mini Program</div>
+                    <div class="project-desc">Native WeChat Mini Program with client-side architecture (local Storage + Canvas charts). Features: primary/side income tracking, expense management, multi-goal financial planning, wealth trend charts, transaction history with undo, customizable theme poster generation and sharing.</div>
+                </div>
+            </div>
+
+            <div class="project-item">
+                <div class="project-icon">🏗️</div>
+                <div class="project-info">
+                    <div class="project-name">Go Hexagonal + Py Hexagonal<a href="https://github.com/RanchoCooper/go-hexagonal">GitHub ↗</a></div>
+                    <div class="project-desc">Go / Python project templates based on Hexagonal Architecture and Domain-Driven Design, adopted across multiple business lines at Binance. Achieves clear separation of business logic and infrastructure through dependency inversion and interface segregation, improving testability and maintainability.</div>
+                </div>
+            </div>
+
+            <div class="project-item">
+                <div class="project-icon">📈</div>
+                <div class="project-info">
+                    <div class="project-name">Quants / Py-Quantix &mdash; Quantitative Trading System<a href="https://github.com/RanchoCooper/quants">GitHub ↗</a></div>
+                    <div class="project-desc">Personal quantitative trading system covering data collection, strategy backtesting, signal generation, and live trading. Under active development.</div>
+                </div>
+            </div>
+
+            <div class="project-item">
+                <div class="project-icon">🎨</div>
+                <div class="project-info">
+                    <div class="project-name">Hexo Blog Theme<a href="https://github.com/RanchoCooper/hexo-theme-huxblog">GitHub ↗</a></div>
+                    <div class="project-desc">Custom Hexo theme powering <a href="https://blog.ranchocooper.com">blog.ranchocooper.com</a>.</div>
+                </div>
+            </div>
+
+            <div class="project-item">
+                <div class="project-icon">🤝</div>
+                <div class="project-info">
+                    <div class="project-name">Open Source Contributions</div>
+                    <div class="project-desc">
+                        <a href="https://github.com/RanchoCooper/structs">structs</a> &mdash; improved tag functionality;
+                        <a href="https://github.com/vibora-io/vibora">Vibora</a> &mdash; fixed routing bugs and improved documentation.
                     </div>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
 </div>
 </body>
 </html>
